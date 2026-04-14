@@ -25,7 +25,7 @@ export default function Footer() {
       { name: t("links.industrialSafety"), href: "/services" },
       { name: t("links.fireProtection"), href: "/services" },
       { name: t("links.training"), href: "/services" },
-      { name: t("links.safetyConsulting"), href: "/services" },
+      { name: t("links.wavePlus"), href: "/wave-plus" },
       { name: t("links.ppeEquipment"), href: "/products" },
     ],
     resources: [
@@ -142,22 +142,17 @@ export default function Footer() {
               <div className="flex gap-4">
                 <div className="mt-1 w-5 h-5 rounded-sm bg-ss-red/10 border border-ss-red/20 flex items-center justify-center text-ss-red text-[10px] font-bold">A</div>
                 <p className="text-ss-grey-400 text-sm leading-relaxed">
-                  Zone Industrielle, Megrine<br />
-                  2033 Ben Arous, Tunisia
+                  Route de Gabès Km 3.5, 3038 Sfax — Tunisia
                 </p>
               </div>
               <div className="flex gap-4">
                 <div className="mt-1 w-5 h-5 rounded-sm bg-ss-red/10 border border-ss-red/20 flex items-center justify-center text-ss-red text-[10px] font-bold">P</div>
                 <div className="flex flex-col">
-                  <a href="tel:+21671000000" className="text-ss-grey-400 text-sm hover:text-ss-red transition-colors">+216 71 000 000</a>
-                  <a href="tel:+21671111111" className="text-ss-grey-400 text-sm hover:text-ss-red transition-colors">+216 71 111 111</a>
+                  <a href="tel:+21674453027" className="text-ss-grey-400 text-sm hover:text-ss-red transition-colors">+216 74 453 027</a>
+                  <a href="mailto:contact@ssplus.tn" className="text-ss-grey-400 text-sm hover:text-ss-red transition-colors">
+                    contact@ssplus.tn
+                  </a>
                 </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="mt-1 w-5 h-5 rounded-sm bg-ss-red/10 border border-ss-red/20 flex items-center justify-center text-ss-red text-[10px] font-bold">E</div>
-                <a href="mailto:contact@ssplus.com.tn" className="text-ss-grey-400 text-sm hover:text-ss-red transition-colors">
-                  contact@ssplus.com.tn
-                </a>
               </div>
             </div>
           </div>

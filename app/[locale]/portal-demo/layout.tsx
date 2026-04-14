@@ -24,7 +24,7 @@ export default function PortalDemoLayout({
     >
       {/* Override the root layout's Navbar/Footer by providing
           our own wrapper that fills the viewport */}
-      <div className="portal-layout-root fixed inset-0 z-[200] bg-[var(--portal-bg)]">
+      <div className="portal-layout-root fixed inset-0 z-200 bg-var(--portal-bg)">
         {children}
       </div>
     </ThemeProvider>

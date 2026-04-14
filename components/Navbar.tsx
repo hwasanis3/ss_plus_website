@@ -128,7 +128,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-100 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
         !isHome || scrolled
           ? "bg-black/90 backdrop-blur-xl border-b border-white/5 py-3 md:py-4"
           : "bg-transparent py-5 md:py-8"
@@ -136,7 +136,7 @@ export default function Navbar() {
     >
       <div className="ss-container flex items-center justify-between">
         {/* Logo */}
-        <Link href={toLocalizedHref(currentLocale, "home")} className="relative z-110 flex items-center gap-3 group">
+        <Link href={toLocalizedHref(currentLocale, "home")} className="relative z-[110] flex items-center gap-3 group">
           <div className="relative h-8 md:h-12 w-auto overflow-visible">
             <Image
               src="/logo-ssplus.png"
@@ -192,7 +192,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Actions */}
-        <div className="relative z-110 flex lg:hidden items-center gap-2">
+        <div className="relative z-[110] flex lg:hidden items-center gap-2">
           <Link
             href={switchHref}
             className="inline-flex items-center px-2.5 py-2 border border-white/20 text-white/90 text-[10px] font-bold uppercase tracking-[0.18em] hover:border-ss-red hover:text-ss-red transition-all duration-300"
@@ -202,7 +202,9 @@ export default function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none"
+            className={`w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
             aria-label="Toggle Menu"
             aria-expanded={isMenuOpen}
           >
@@ -215,7 +217,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-100 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[105] lg:hidden transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -226,7 +228,7 @@ export default function Navbar() {
         />
 
         <div
-          className={`absolute top-0 right-0 h-full w-[88%] max-w-sm bg-black border-l border-white/10 overflow-y-auto transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 h-full w-[88%] max-w-sm bg-black border-l border-white/10 overflow-y-auto transition-transform duration-300 ease-out z-[110] ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

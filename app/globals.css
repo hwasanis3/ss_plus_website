@@ -1,26 +1,311 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── SS PLUS Design System ─────────────────────────────────── */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Palette (Light Mode) */
+  --ss-black: #f5f7fb;
+  --ss-charcoal: #eef2f7;
+  --ss-charcoal-light: #e3e9f2;
+  --ss-grey-900: #d2dbe8;
+  --ss-grey-800: #bcc8d9;
+  --ss-grey-700: #96a7be;
+  --ss-grey-600: #7b8ea8;
+  --ss-grey-500: #677b96;
+  --ss-grey-400: #5a6b84;
+  --ss-grey-300: #3f5068;
+  --ss-grey-200: #27364d;
+  --ss-grey-100: #132033;
+  --ss-white: #132033;
+  --ss-pure-white: #0d1a2d;
+
+  /* Accent — SS PLUS Red */
+  --ss-red: #d62828;
+  --ss-red-dark: #b71c1c;
+  --ss-red-glow: rgba(214, 40, 40, 0.25);
+
+  /* Backgrounds */
+  --background: #f5f7fb;
+  --foreground: #132033;
+  --ui-white: #ffffff;
+  --ui-black: #122033;
+
+  /* Typography */
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
 }
+
+.light {
+  --background: #f5f7fb;
+  --foreground: #132033;
+  --ui-white: #ffffff;
+  --ui-black: #122033;
+  --portal-bg: #f8f9fc;
+  --card-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+}
+
+.dark {
+  --ss-black: #0a0a0a;
+  --ss-charcoal: #141414;
+  --ss-charcoal-light: #1c1c1c;
+  --ss-grey-900: #222222;
+  --ss-grey-800: #2a2a2a;
+  --ss-grey-700: #3a3a3a;
+  --ss-grey-600: #5e5e5e;
+  --ss-grey-500: #727272;
+  --ss-grey-400: #888888;
+  --ss-grey-300: #a0a0a0;
+  --ss-grey-200: #c8c8c8;
+  --ss-grey-100: #e4e4e4;
+  --ss-white: #f5f5f5;
+  --ss-pure-white: #ffffff;
+  --background: var(--ss-black);
+  --foreground: var(--ss-white);
+  --ui-white: #ffffff;
+  --ui-black: #0a0a0a;
+}
+
+/* ─── Tailwind v4 Theme Tokens ──────────────────────────────── */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ss-black: var(--ss-black);
+  --color-ss-charcoal: var(--ss-charcoal);
+  --color-ss-charcoal-light: var(--ss-charcoal-light);
+  --color-ss-grey-900: var(--ss-grey-900);
+  --color-ss-grey-800: var(--ss-grey-800);
+  --color-ss-grey-700: var(--ss-grey-700);
+  --color-ss-grey-600: var(--ss-grey-600);
+  --color-ss-grey-500: var(--ss-grey-500);
+  --color-ss-grey-400: var(--ss-grey-400);
+  --color-ss-grey-300: var(--ss-grey-300);
+  --color-ss-grey-200: var(--ss-grey-200);
+  --color-ss-grey-100: var(--ss-grey-100);
+  --color-ss-white: var(--ss-white);
+  --color-ss-pure-white: var(--ss-pure-white);
+  --color-ss-red: var(--ss-red);
+  --color-ss-red-dark: var(--ss-red-dark);
+  --color-ss-red-glow: var(--ss-red-glow);
+  --color-white: var(--ui-white);
+  --color-black: var(--ui-black);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base Styles ───────────────────────────────────────────── */
+
+/* Base Styles Removed — relying on Tailwind Preflight */
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--ss-grey-500) 86%, transparent);
+  opacity: 1;
+}
+
+::selection {
+  background: var(--ss-red);
+  color: var(--ss-pure-white);
+}
+
+/* ─── Typography Defaults ───────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* ─── Utility Classes ───────────────────────────────────────── */
+
+.ss-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-left: max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-left));
+  padding-right: max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-right));
+}
+
+/* Gradient accents */
+.ss-gradient-red {
+  background: linear-gradient(135deg, var(--ss-red) 0%, var(--ss-red-dark) 100%);
+}
+
+.ss-gradient-dark {
+  background: linear-gradient(
+    180deg,
+    var(--ss-black) 0%,
+    var(--ss-charcoal) 100%
+  );
+}
+
+/* Red line accent */
+.ss-accent-line {
+  width: 64px;
+  height: 3px;
+  background: var(--ss-red);
+  border-radius: 2px;
+}
+
+/* Premium noise texture overlay */
+.ss-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glass morphism card */
+.ss-glass {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Animations ────────────────────────────────────────────── */
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 24px var(--ss-red-glow);
+  }
+  50% {
+    box-shadow: 0 0 48px var(--ss-red-glow), 0 0 96px rgba(214, 40, 40, 0.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ─── Custom Scrollbars ─────────────────────────────────────── */
+
+.ss-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ss-grey-600) transparent;
+  scrollbar-gutter: auto;
+}
+
+.ss-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.ss-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ss-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ss-grey-700);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.dark .ss-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ss-grey-600);
+}
+
+.ss-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--ss-red) !important;
+}
+
+/* Hero-specific clip reveal */
+.hero-line-mask {
+  clip-path: inset(0 0 100% 0);
+}
+
+.hero-line-visible {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ─── Portal Demo Design Tokens ─────────────────────────── */
+
+:root {
+  --portal-bg: #f8f9fc;
+  --sidebar-bg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --card-bg: #ffffff;
+  --hover-bg: #f1f3f9;
+  --search-bg: #f1f3f9;
+  --search-focus-bg: #ffffff;
+  --drawer-bg: #ffffff;
+  --bottom-nav-bg: rgba(255, 255, 255, 0.92);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --text-primary: #0f1729;
+  --text-secondary: #3d4a5c;
+  --text-tertiary: #8896ab;
+}
+
+.dark {
+  --portal-bg: #0a0c10;
+  --sidebar-bg: #0f1117;
+  --header-bg: rgba(15, 17, 23, 0.85);
+  --card-bg: #141720;
+  --hover-bg: #1a1e2a;
+  --search-bg: #141720;
+  --search-focus-bg: #1a1e2a;
+  --drawer-bg: #0f1117;
+  --bottom-nav-bg: rgba(10, 12, 16, 0.92);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text-primary: #eef0f6;
+  --text-secondary: #9ca3b4;
+  --text-tertiary: #5a6478;
+}
+
+/* ─── Portal Animations ─────────────────────────────────── */
+
+.animate-in {
+  animation: portal-fade-in 0.35s ease-out;
+}
+
+@keyframes portal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Safe area padding for mobile bottom nav */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }

@@ -1,0 +1,41 @@
+{
+  "common": {
+    "locale": "English"
+  },
+  "MissionVision": {
+    "ourMission": "Our Mission",
+    "ourVision": "Our Vision",
+    "committedToExcellence": "Committed to Excellence",
+    "pavingTheFuture": "Paving the Future"
+  },
+  "ServicePillars": {
+    "whatWeDo": "What We Do",
+    "ourCorePillars": "Our Core Pillars",
+    "viewDetails": "View Details",
+    "technicalDetail": "Technical Detail",
+    "certifiedIndustrialSafetySolution": "Certified Industrial Safety Solution",
+    "closeDetails": "Close Details"
+  },
+  "Footer": {
+    "thinkSafety": "Think Safety",
+    "thinkUs": "Think Us",
+    "description": "Tunisia's leading partner in industrial safety and fire protection since 2001. We deliver certified, high-performance solutions to protect your assets and people.",
+    "company": "Company",
+    "links": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "services": "Services",
+      "products": "Products",
+      "contact": "Contact",
+      "industrialSafety": "Industrial Safety",
+      "fireProtection": "Fire Protection",
+      "training": "Training",
+      "safetyConsulting": "Safety Consulting",
+      "ppeEquipment": "PPE Equipment"
+    },
+    "solutions": "Solutions",
+    "contactUs": "Contact Us",
+    "allRightsReserved": "All rights reserved.",
+    "developedBy": "developed by"
+  }
+}

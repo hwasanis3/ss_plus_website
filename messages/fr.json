@@ -1,0 +1,41 @@
+{
+  "common": {
+    "locale": "Francais"
+  },
+  "MissionVision": {
+    "ourMission": "Notre Mission",
+    "ourVision": "Notre Vision",
+    "committedToExcellence": "Engagés pour l'Excellence",
+    "pavingTheFuture": "Préparer l'Avenir"
+  },
+  "ServicePillars": {
+    "whatWeDo": "Ce Que Nous Faisons",
+    "ourCorePillars": "Nos Piliers Fondamentaux",
+    "viewDetails": "Voir les Détails",
+    "technicalDetail": "Détail Technique",
+    "certifiedIndustrialSafetySolution": "Solution de Sécurité Industrielle Certifiée",
+    "closeDetails": "Fermer les Détails"
+  },
+  "Footer": {
+    "thinkSafety": "Think Safety",
+    "thinkUs": "Think Us",
+    "description": "Le partenaire de confiance en Tunisie pour la sécurité industrielle et la protection incendie depuis 2001. Nous fournissons des solutions complètes et certifiées pour protéger vos actifs et vos employés.",
+    "company": "Entreprise",
+    "links": {
+      "home": "Accueil",
+      "aboutUs": "À Propos",
+      "services": "Services",
+      "products": "Produits",
+      "contact": "Contact",
+      "industrialSafety": "Sécurité Industrielle",
+      "fireProtection": "Protection Incendie",
+      "training": "Formations",
+      "safetyConsulting": "Conseil en Sécurité",
+      "ppeEquipment": "Équipements EPI"
+    },
+    "solutions": "Solutions",
+    "contactUs": "Contactez-nous",
+    "allRightsReserved": "Tous droits réservés.",
+    "developedBy": "développé par"
+  }
+}

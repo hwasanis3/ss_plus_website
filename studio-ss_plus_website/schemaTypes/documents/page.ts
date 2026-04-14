@@ -1,0 +1,111 @@
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
+  name: 'page',
+  title: 'Page',
+  type: 'document',
+  initialValue: {
+    language: 'en',
+  },
+  fields: [
+    defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+      options: {
+        list: [
+          {title: 'English', value: 'en'},
+          {title: 'French', value: 'fr'},
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        { type: 'heroSection' },
+        { type: 'trustBar' },
+        { type: 'introSnippet' },
+        { type: 'servicePillars' },
+        { type: 'whyChoose' },
+        { type: 'sectors' },
+        { type: 'wavePlusTeaser' },
+        { type: 'ctaBanner' },
+        { type: 'missionVision' },
+        { type: 'coreValues' },
+        { type: 'timeline' },
+        { type: 'teamSection' },
+        { type: 'coverage' },
+        { type: 'commercialWorkflow' },
+        { type: 'categoryGrid' },
+        { type: 'productGrid' },
+        { type: 'customOrderCta' },
+        { type: 'qhseIntro' },
+        { type: 'qhsePillars' },
+        { type: 'commitments' },
+        { type: 'standardsGrid' },
+        { type: 'policyCTA' },
+        { type: 'standards' },
+        { type: 'wavePlusHero' },
+        { type: 'whatIsWavePlus' },
+        { type: 'platformFeatures' },
+        { type: 'whyWavePlus' },
+        { type: 'aboutPartner' },
+        { type: 'accessAvailability' },
+        { type: 'screenshotSection' },
+        { type: 'contactHero' },
+        { type: 'contactInfoGrid' },
+        { type: 'contactFormSection' },
+        { type: 'emergencyBanner' },
+        { type: 'faqSection' },
+        { type: 'contactInfo' },
+        { type: 'contactForm' },
+        { type: 'mapEmbed' },
+        { type: 'emergencyContact' },
+        { type: 'socialLinks' },
+        { type: 'header' },
+        { type: 'footer' },
+        { type: 'seo' },
+      ],
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      slug: 'slug.current',
+      language: 'language',
+    },
+    prepare({title, slug, language}) {
+      const localeLabel = language === 'fr' ? 'FR' : 'EN'
+      return {
+        title,
+        subtitle: `${localeLabel} - /${slug ?? ''}`,
+      }
+    },
+  },
+});

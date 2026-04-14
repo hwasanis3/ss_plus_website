@@ -135,7 +135,10 @@ export default function Navbar() {
     <>
       {/* ─── Main Header Bar ──────────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 w-full z-100 transition-all duration-500 ${
+        style={{ zIndex: 100 }}
+        className={`fixed top-0 left-0 w-full transition-all duration-500 ${
+          isMenuOpen ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : 'opacity-100'
+        } ${
           !isHome || scrolled
             ? 'bg-black/90 backdrop-blur-xl border-b border-white/5 py-3 md:py-4'
             : 'bg-transparent py-5 md:py-8'
@@ -238,12 +241,13 @@ export default function Navbar() {
 
       {/* ─── Mobile Menu Overlay — rendered OUTSIDE <header> ─────── */}
       {/*
-        Placing this outside the <header> means its z-[110] is relative to
-        the document root stacking context, not the header's z-[100] context.
+        Placing this outside the <header> means its z-index is relative to
+        the document root stacking context, not the header's context.
         This guarantees it always covers the full viewport on every page.
       */}
       <div
-        className={`fixed inset-0 z-110 lg:hidden transition-opacity duration-300 ${
+        style={{ zIndex: 110 }}
+        className={`fixed inset-0 lg:hidden transition-opacity duration-300 ${
           isMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
